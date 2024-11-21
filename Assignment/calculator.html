@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+        .box{
+       height: 340px;
+       width: 500px;
+       border: 2px solid black;
+       margin: 0 auto;
+       margin-top: 50px;
+   }
+
+   .box h3{
+       display: flex;
+       justify-content: center;
+   }
+
+   .first-content{
+       display: flex;
+   }
+
+   .second-content{
+       display: flex;
+   }
+
+   input{
+       height: 20px;
+       margin-top: 20px;
+   }
+</style>
+</head>
+<body>
+
+    <div class="box">
+        <h3>Maths Operation</h3>
+ 
+        <div class="first-content">
+        <h4>Enter 1st Number :</h4>
+        <input type="text" name="" id="first" placeholder="Enter first number" /><br><br></div>
+ 
+        <div class="second-content">
+         <h4>Enter 2nd Number</h4>
+        <input type="text" name="" id="second" placeholder="Enter second number" /><br><br></div>
+ 
+    
+
+    <button class="add">+</button>
+    <button class="subtract">-</button>
+    <button class="multiply">*</button>
+    <button class="divide">/</button>
+    <button class="modulus">%</button>
+
+    <h1>Answer is: <span id="output"></span></h1>
+
+    </div>
+
+    <script>
+        const firstInp = document.querySelector('#first');
+        const secondInp = document.querySelector('#second');
+        const addBtn = document.querySelector('.add');
+        const subtractBtn = document.querySelector('.subtract');
+        const multiplyBtn = document.querySelector('.multiply');
+        const divideBtn = document.querySelector('.divide');
+        const modulusBtn = document.querySelector('.modulus');
+        const output = document.querySelector('#output');
+
+        addBtn.addEventListener('click', () => {
+            let firstInpVal = firstInp.value;
+            let secondInpVal = secondInp.value;
+            let result = Number(firstInpVal) + Number(secondInpVal);
+            output.innerText = result;
+        });
+
+        subtractBtn.addEventListener('click', () => {
+            let firstInpVal = firstInp.value;
+            let secondInpVal = secondInp.value;
+            let result = Number(firstInpVal) - Number(secondInpVal);
+            output.innerText = result;
+        });
+
+        multiplyBtn.addEventListener('click', () => {
+            let firstInpVal = firstInp.value;
+            let secondInpVal = secondInp.value;
+            let result = Number(firstInpVal) * Number(secondInpVal);
+            output.innerText = result;
+        });
+
+        divideBtn.addEventListener('click', () => {
+            let firstInpVal = firstInp.value;
+            let secondInpVal = secondInp.value;
+            if (secondInpVal === 0) {
+                output.innerText = "Error: Division by zero";
+            } else {
+                let result = Number(firstInpVal) / Number(secondInpVal);
+                output.innerText = result;
+            }
+        });
+
+        modulusBtn.addEventListener('click', () => {
+            let firstInpVal = firstInp.value;
+            let secondInpVal = secondInp.value;
+            if (secondInpVal === 0) {
+                output.innerText = "Error: Modulus by zero";
+            } else {
+                let result = Number(firstInpVal) % Number(secondInpVal);
+                output.innerText = result;
+            }
+        });
+    </script>
+</body>
+</html>
