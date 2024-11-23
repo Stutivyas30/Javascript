@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Slider</title>
+
+    
+    <style>
+    
+
+      body {
+       
+        height: 100%;
+        background-image: url(https://i.pinimg.com/736x/92/c1/96/92c196793e7dfdc5f4de28abdb113069.jpg);
+        display: flex;
+        justify-content: center;
+      }
+
+      .slider-container {
+         width: 600px;
+        position: relative;
+        overflow: hidden;
+        
+      }
+
+      h1{
+        color: white;
+        text-align: center;
+        margin: 50px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      }
+
+      .slider {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+      }
+
+      .slide {
+        height: 300px;
+        min-width: 100%;
+        object-fit: cover;
+        border-radius: 20px;
+      }
+      
+
+      .prev,.next {
+        height: 50px;
+        position: absolute;
+         top: calc(60% - 5px);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+         padding: 10px;
+        border: none;
+       
+        
+      }
+
+
+      .next {
+        right: 10px;
+      }
+
+    
+     
+    </style>
+  </head>
+  <body>
+    <div class="slider-container">
+
+        <h1>Welcome to Universe</h1>
+
+      <div class="slider">
+
+        <img
+          src="https://i.pinimg.com/736x/c2/b3/69/c2b3692a0909934d12b75769e40bc571.jpg" class="slide"/>
+        <img
+          src="https://i.pinimg.com/736x/65/8c/f0/658cf027d74635dd151c581d79aac95f.jpg" class="slide"/>
+        <img
+          src="https://i.pinimg.com/736x/59/5b/d7/595bd77c8325fefece5c54c8062462c9.jpg" class="slide"/>
+
+          <img src="https://i.pinimg.com/736x/ef/cd/67/efcd671414335d96189c9ee5649b2e76.jpg" class="slide" >
+      </div>
+
+
+
+      <button class="prev" onclick="prevSlide()">❮</button>
+
+      <button class="next" onclick="nextSlide()">❯</button>
+
+    </div>
+
+    <script>
+      let currentSlide = 0;
+      let slides = document.querySelectorAll('.slide');
+
+      function showSlide(index) {
+        if (index >= slides.length) {
+          currentSlide = 0;
+
+        } else if (index < 0) {
+          currentSlide = slides.length - 1; 
+
+        } else {
+          currentSlide = index;
+        }
+    
+        let slider = document.querySelector('.slider');
+
+        slider.style.transform = `translateX(${-currentSlide * 100}%)`;
+      }
+
+      
+      function nextSlide() {
+
+        showSlide(currentSlide + 1);
+      }
+  
+      function prevSlide() {
+
+        showSlide(currentSlide - 1);
+      }
+
+      
+      setInterval(() => {
+
+          nextSlide();
+          
+      }, 3000);
+    </script>
+  </body>
+</html>
